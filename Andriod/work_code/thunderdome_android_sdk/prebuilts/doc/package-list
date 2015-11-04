@@ -1,0 +1,6 @@
+com.intel.ispplib
+com.intel.ispplib.connection.device
+com.intel.ispplib.connection.device.service
+com.intel.ispplib.connection.device.utils
+com.intel.ispplib.ias.ispp
+com.intel.ispplib.utils

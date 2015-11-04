@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDeviceRefButtonISPP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/viDeviceSeparatorButton">
+
+
+    <LinearLayout
+        android:id="@+id/llRefDataBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+        <Button
+            android:id="@+id/btDeviceRefISPP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_test_ispp"
+            android:layout_alignParentLeft="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/bleiasService_device_ispp_stress"
+                />
+            <EditText
+                android:id="@+id/etRefStress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:numeric="integer"
+                android:imeOptions="actionDone"/>
+
+        </LinearLayout>
+<!-- not used nom
+        <Button
+            android:id="@+id/btDeviceSeeDataISPP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_ispp_see_data"
+            android:layout_alignParentRight="true"/>
+    -->
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llRefData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/llRefDataBt"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/tvDeviceSendToDeviceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bleiasService_device_ispp_send"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/btDeviceRefISPP"
+                />
+            <TextView
+                android:id="@+id/tvDeviceSendToDeviceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_toRightOf="@+id/tvDeviceSendToDeviceLabel"
+                android:layout_below="@+id/btDeviceRefISPP"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/tvDeviceReceivedFromDeviceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bleiasService_device_ispp_received"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvDeviceSendToDeviceValue"
+                />
+            <TextView
+                android:id="@+id/tvDeviceReceivedFromDeviceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_toRightOf="@+id/tvDeviceReceivedFromDeviceLabel"
+                android:layout_below="@+id/tvDeviceSendToDeviceValue"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/llRefData"
+        >
+
+        <TextView
+            android:id="@+id/tvDeviceCheckLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bleiasService_device_ispp_checking_data"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvDeviceReceivedFromDeviceLabel"
+            />
+        <TextView
+            android:id="@+id/tvDeviceCheckLabelValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_toRightOf="@+id/tvDeviceCheckLabel"
+            android:layout_below="@+id/tvDeviceReceivedFromDeviceLabel"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

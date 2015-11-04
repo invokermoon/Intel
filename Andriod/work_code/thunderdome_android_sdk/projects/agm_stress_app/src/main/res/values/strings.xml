@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Android AGM test app</string>
+
+
+    <!-- generic -->
+    <string name="generic_ok">OK</string>
+    <string name="generic_error">Error</string>
+
+    <!-- Bluetooth -->
+    <string name="ble_not_supported">Bluetooth LE is not supported on your platform </string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_device_address">Unknown device address</string>
+    <string name="connected">Connected</string>
+    <string name="not_connected">Not connected</string>
+    <string name="un_connect">Disconnect</string>
+    <string name="connect">Connect</string>
+    <string name="paired">Paired</string>
+    <string name="not_paired">Not paired</string>
+    <string name="un_paired">Dispaired</string>
+    <string name="apaired">Paired</string>
+
+
+    <!-- Device Info -->
+    <string name="device_info">Device Information</string>
+    <string name="device_name">Device Name :</string>
+    <string name="device_address">Device Address :</string>
+    <string name="device_connected">Device Connected :</string>
+    <string name="device_paired">Device Paired :</string>
+
+
+
+    <!-- BleIasService -->
+    <string name="bleiasService_connected">BleIasService connected</string>
+    <string name="bleiasService_device_connecting">Device connecting ...</string>
+    <string name="bleiasService_device_connected">Device connected</string>
+    <string name="bleiasService_status">Status :</string>
+    <string name="bleiasService_device_disconnecting">Device disconnecting ...</string>
+    <string name="bleiasService_device_disconnected">Device disconnected</string>
+    <string name="bleiasService_scan_finish">Scan finish</string>
+    <string name="bleiasService_scan_refresh">Refresh scan</string>
+    <string name="bleiasService_scanning">Scanning</string>
+    <string name="bleiasService_device_paired">Device paired</string>
+    <string name="bleiasService_device_unpaired">Device unpaired</string>
+
+    <string name="bleiasService_device_connect_ispp">Connect to ISPP</string>
+    <string name="bleiasService_device_test_ispp">Test Ref </string>
+
+    <string name="bleiasService_device_ispp_error_connect">The device must be connected</string>
+    <string name="bleiasService_device_ispp_connected">Ispp connection established with mtu : </string>
+
+    <string name="bleiasService_device_get_service">Get Services</string>
+    <string name="bleiasService_device_getting_service">Getting Service ...</string>
+    <string name="bleiasService_device_ispp_service_found">ISPP Service found</string>
+
+
+
+    <!-- Test ISPP -->
+    <string name="bleiasService_device_ispp_send">Send : </string>
+    <string name="bleiasService_device_ispp_received">Received : </string>
+    <string name="bleiasService_device_ispp_checking_data">Check : </string>
+    <string name="bleiasService_device_ispp_check_same">Same data</string>
+    <string name="bleiasService_device_ispp_check_different">Different data</string>
+    <string name="bleiasService_device_ispp_see_data">See Data</string>
+    <string name="bleiasService_device_ispp_stress">Stress :</string>
+    <string name="bleiasService_device_ispp_data">Nbr Data :</string>
+    <string name="bleiasService_device_ispp_stress_nbr">Nbr Stress =</string>
+    <string name="bleiasService_device_ispp_stress_lower_border">Border Test</string>
+
+    <!-- Error -->
+    <string name="bleiasService_error_connect">Unable to initialize BleIasService</string>
+    <string name="bleiasService_error_get_service">Error in Get Service</string>
+    <string name="bleiasService_error_main_service_disconnect">Main Service disconnected</string>
+    <string name="bleiasService_error_service_discovered">Error on ACTION_ON_SERVICES_DISCOVERED</string>
+    <string name="bleiasService_error_mtu_null">Mtu = 0</string>
+
+
+</resources>

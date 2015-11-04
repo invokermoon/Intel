@@ -1,0 +1,19 @@
+def projectList = []
+//String [] projectPath
+projectList.add(':prebuilts')
+if(file("projects/agm_stress_app").exists()) {
+    println "agm_stress_app found"
+    projectList.add(':projects:agm_stress_app')
+} else {
+    println "agm_stress_app not found."
+}
+
+if(file("projects/agm_test_app").exists()) {
+    println "agm_test_app found"
+    projectList.add(':projects:agm_test_app')
+
+} else {
+    println "agm_test_app not found."
+}
+String [] projectPaths = projectList.toArray();
+include projectPaths

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/tvDeviceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_info"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/viDeviceSeparatorTitle"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDeviceTitle"
+        android:paddingBottom="15dp"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_name"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viDeviceSeparatorTitle"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="name"
+        android:layout_below="@+id/viDeviceSeparatorTitle"
+        android:layout_toRightOf="@+id/tvDeviceNameLabel"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_address"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDeviceNameLabel"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceAddressValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="address"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/tvDeviceNameLabel"
+        android:layout_toRightOf="@+id/tvDeviceAddressLabel"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceConnectedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_connected"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDeviceAddressLabel"
+        />
+
+    <TextView
+        android:id="@+id/tvDeviceConnectedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="connected"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/tvDeviceAddressLabel"
+        android:layout_toRightOf="@+id/tvDeviceConnectedLabel"
+        />
+<!-- Bonded if need - not implemented
+    <TextView
+        android:id="@+id/tvDevicePairedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_paired"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDeviceConnectedLabel"
+        />
+
+    <TextView
+        android:id="@+id/tvDevicePairedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="paired"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/tvDeviceConnectedLabel"
+        android:layout_toRightOf="@+id/tvDevicePairedLabel"
+        />
+-->
+    <View
+        android:id="@+id/viDeviceSeparatorInfo"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDeviceConnectedLabel"
+        android:paddingBottom="15dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/llDeviceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viDeviceSeparatorInfo">
+
+        <Button
+            android:id="@+id/btDeviceConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/button_text_size"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/btDeviceGetServices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_get_service"
+            android:layout_toRightOf="@+id/btDeviceConnect"/>
+
+        <Button
+            android:id="@+id/btDeviceConnectISPP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_connect_ispp"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <!-- Ref Test -->
+    <View
+        android:id="@+id/viDeviceSeparatorButton"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/llDeviceButton"
+        android:paddingBottom="15dp"
+        />
+
+    <include
+        layout="@layout/stress_ref"
+
+        />
+
+    <!-- Border Test -->
+    <View
+        android:id="@+id/viDeviceSeparatorRef"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/llDeviceRefButtonISPP"
+        android:paddingBottom="15dp"
+        />
+
+    <include
+        layout="@layout/stress_border"
+
+    />
+
+    <!-- Statud and error -->
+    <RelativeLayout
+        android:id="@+id/rlStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true">
+        <View
+            android:id="@+id/viDeviceSeparatorStatus"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:id="@+id/tvDeviceStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bleiasService_status"
+            android:textColor="@color/blue"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/viDeviceSeparatorStatus"
+            />
+        <TextView
+            android:id="@+id/tvDeviceStatusValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:text="error"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/viDeviceSeparatorStatus"
+            android:layout_toRightOf="@+id/tvDeviceStatusLabel"
+            />
+
+
+        <View
+            android:id="@+id/viDeviceSeparatorBottom"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvDeviceStatusLabel"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/tvDeviceErrorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/red"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentLeft="true"
+
+            />
+        <TextView
+            android:id="@+id/tvDeviceErrorValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text="error"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/viDeviceSeparatorBottom"
+            android:layout_toRightOf="@+id/tvDeviceErrorLabel"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

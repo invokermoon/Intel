@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/1999/html">
+<HEAD>
+    <TITLE>Android BLE SDK FOR CURIE DEVICES</TITLE>
+</HEAD>
+<BODY>
+<h2>Overview</h2>
+<p> This SDK allows you to connect from a companion app to a CURIE device with Bluetooth Low Energy (BLE).
+All communication are done via BLE. This device is compliant with the Android requirements (see
+<a href="http://developer.android.com/guide/topics/connectivity/bluetooth-le.html">Android developer
+ BLE page</a> ).
+</p>
+When the connection is established with the device, it is possible
+to request the list of available services.
+
+Using a BroadcastReceiver, we can communicate with the device for each service.
+<p>The main available options are:
+</p>
+
+<ol>
+    <li>Get information about the device</li>
+    <li>Use ISPP protocol between device and companion app to send/receive messages</li>
+</ol>
+
+<h2>System requirements</h2>
+<ol>
+    <li>Android studio</li>
+    <li>For the companion app</li>
+        <ol>
+            <li>API Level 19 (Kitkat 4.4)</li>
+            <li>Bluetooth and Bluetooth Low Energy connectivity</li>
+            <li>Intel SDK (ispplib-release-0.1.0.aar file in the prebuilts directory)</li>
+        </ol>
+</ol>
+
+To import the library in your app's project, you have two options:
+<ol>
+    <li>Import the prebuilts project in your app</li>
+    <ol>
+        <li>Add: compile project(':prebuilts') in the dependencies section inside build.gradle</li>
+        <li>Update the settings.gradle file: include ':yourapp', ':prebuilts' </li>
+    </ol>
+    <li>Import the aar file in your app directory</li>
+    <ol>
+        <li>Set the aar file in libs directory of the application</li>
+        <li>Add compile name:'ispplib-release-0.1.0.aar', ext:'aar'
+            to dependencies in the gradle of application build.gradle</li>
+        <li>Add the following lines In the project gradle:
+            allprojects {
+            repositories {
+            flatDir {
+            dirs 'libs'
+            }
+            jcenter()
+            }
+            }</li>
+        <li>Update the settings.gradle file: include ':yourapp', ':ispplib-release-0.1.0' </li>
+    </ol>
+</ol>
+<p>For both cases AndroidManifest.xml has to be updated with the following lines: </p>
+<p>&lt;uses-feature android:name="android.hardware.bluetooth_le" android:required="true" /&gt;</p>
+<p>&lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;</p>
+<p>&lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/&gt;</p>
+
+<h2>Develop a first application between the device and the companion app</h2>
+<h3>First step : Implement a BLE Scanner to detect the device</h3>
+
+<ol>
+    <li>We need to implement a ServiceConnection to initialize the connection with the BLE layer.
+        <p>This ServiceConnection initializes the service that has to be used as the Context of
+        the application. ({@link com.intel.ispplib.connection.device.service.BleIasService})</p>
+    </li>
+    <li>Bind the service in the onResume method with a code like :
+        <code>
+            <p>Intent bleIasServiceIntent = new Intent(this, BleIasService.class);</p>
+            <p>isServiceBound = bindService(bleIasServiceIntent, mServiceConnection, BIND_AUTO_CREATE);</p>
+        </code>
+    </li>
+    <li>
+        <p>The device has to be found by using the bluetooth low energy scan procedure (see
+            "Finding BLE Devices" in
+            <a href="http://developer.android.com/guide/topics/connectivity/bluetooth-le.html">
+                Android developer
+                BLE page</a> ). The service should be used as the context.</p>
+    </li>
+    <li>When a device is detected, add it to a traditional ListView.</li>
+</ol>
+
+<h3>Prepare the connection to the Device</h3>
+<ol>
+    <li>
+        When we select a device in the ListView, open, for instance, another activity.
+    </li>
+    <li>
+        In this new activity, as previously, we have to implement a ServiceConnexion and bind it.
+    </li>
+    <li>
+        To get callbacks from the device, we need a BroadcastReceiver with the following filters :
+        <ol>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_STATUS_CHANGED}</li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_CHARACTERISTIC_CHANGED} </li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_CHARACTERISTIC_READ} </li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_CHARACTERISTIC_SUBSCRIBE} </li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_CHARACTERISTIC_WRITE}</li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ISPP_CONNECTION_ESTABLISHED} </li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ISPP_CONNECTION_LOST}</li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ISPP_PACKET_RECEIVED}</li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_BOND_STATE_CHANGED} </li>
+            <li> {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_SERVICES_DISCOVERED} </li>
+        </ol>
+
+    </li>
+    <li>
+        <p>
+        In the ServiceConnection, initialize an instance of BleIasService like :
+        </p>
+        <p>
+        <code>mBleIasService = ((BleIasService.LocalBinder) service).getService();</code>
+        </p>
+    </li>
+    <li>From this instance we can dialog with the device. </li>
+</ol>
+
+<h3>Connect to the device</h3>
+
+Before any action with the device, we have to connect from the companion app to the device with:
+<p><code>mBleIasService.connect(mBleDevice.getAddress(), false); </code> </p>
+and use the BroadcastReceiver to check the status of connection (Connecting, Connected, Disconnecting).
+
+<h3>Get List of services</h3>
+When the connection is done, we have to request the list of services available from the device.
+<p>This request is very important to initialize the exchange with the device.</p>
+Use the command:
+<p>
+<code>mBleIasService.discoverServices();</code>
+</p>
+to make the request and check the answer through the BroadcastReceiver with
+{@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ON_SERVICES_DISCOVERED}.
+<p>If the Gatt status is {@link com.intel.ispplib.connection.device.IBleConnection.GATT_STATUS#GATT_SUCCESS},
+we can get the list of services.
+</p>
+
+<h3>Connect to the device with ISPP protocol </h3>
+
+When we have the list of service, we can check there is a ISPP service with a command like :
+<p>
+    <code>if (service.equals(IsppUtils.ISSP_SERVICE_UUID)){
+        }</code>
+</p>
+
+To establish Ispp connection, we have to use the following command:
+<p><code>mBleIasService.startIsppConnection();</code></p>
+
+and check with the BroadcastReceiver that the connection is established.
+If this is successful, we get the size of packets we can send.
+
+The packets are sent through a bytes array with the following command:
+<p><code> mBleIasService.isppWrite(Byte[] dataPacket); </code></p>
+
+By listening the action {@link com.intel.ispplib.connection.device.service.BleIasService#ACTION_ISPP_PACKET_RECEIVED},
+we can get the answer of the device from the BroadcastReceiver
+<h3>Remarks</h3>
+For more details, please take a look at the code of the sample app.
+</BODY>
+</HTML>

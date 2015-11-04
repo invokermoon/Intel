@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDeviceBorderButtonISPP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/viDeviceSeparatorRef">
+    
+    <LinearLayout
+        android:id="@+id/llBorderDataBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+        <Button
+            android:id="@+id/btDeviceBorderISPP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_ispp_stress_lower_border"
+            android:layout_alignParentLeft="true"/>
+<!-- Not Used now
+        <Button
+            android:id="@+id/btDeviceSeeDataISPP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/bleiasService_device_ispp_see_data"
+            android:layout_alignParentRight="true"/>
+-->
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDeviceBorderParams"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/llBorderDataBt">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/bleiasService_device_ispp_stress"
+                />
+            <EditText
+                android:id="@+id/etBorderStress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:numeric="integer"
+                android:imeOptions="actionDone"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/bleiasService_device_ispp_data"
+                />
+            <EditText
+                android:id="@+id/etBorderStressNbrData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:numeric="integer"
+                android:imeOptions="actionDone"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llBorderData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rlDeviceBorderParams"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/tvDeviceSendBorderToDeviceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bleiasService_device_ispp_send"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/btDeviceBorderISPP"
+                />
+            <TextView
+                android:id="@+id/tvDeviceSendBorderToDeviceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_toRightOf="@+id/tvDeviceSendToDeviceLabel"
+                android:layout_below="@+id/btDeviceBorderISPP"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/tvDeviceReceivedBorderFromDeviceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bleiasService_device_ispp_received"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvDeviceSendBorderToDeviceValue"
+                />
+            <TextView
+                android:id="@+id/tvDeviceReceivedBorderFromDeviceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_toRightOf="@+id/tvDeviceReceivedFromDeviceLabel"
+                android:layout_below="@+id/tvDeviceSendBorderToDeviceValue"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/llBorderData"
+        >
+
+        <TextView
+            android:id="@+id/tvDeviceCheckLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bleiasService_device_ispp_checking_data"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvDeviceReceivedFromDeviceLabel"
+            />
+        <TextView
+            android:id="@+id/tvDeviceCheckBorderValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_toRightOf="@+id/tvDeviceCheckLabel"
+            android:layout_below="@+id/tvDeviceReceivedFromDeviceLabel"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

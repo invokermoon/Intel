@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Curie test</string>
+    <string name="scan_activity">Scan for devices</string>
+    <string name="app_description">Curie test app, showing how to use curie android sdk</string>
+    <string name="action_about">About</string>
+    <string name="middle_text">Press "Find devices" to find your Curie device</string>
+    <string name="find_devices">Find devices</string>
+    <string name="start_scan">Start scan</string>
+    <string name="stop_scan">Stop scan</string>
+    <string name="ble_not_supported">Bluetooth LE is not supported on your platform </string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="device_info">Device Information</string>
+    <string name="serial_number">Serial number</string>
+    <string name="battery_info">Battery information</string>
+    <string name="battery_level">Battery level</string>
+    <string name="update_battery_level">Update Battery level</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="unpair">Unpair</string>
+    <string name="pair">Pair</string>
+    <string name="device_address"> Address</string>
+    <string name="device_name">Device name</string>
+    <string name="device_details">Device details</string>
+    <string name="no_configured_device">No configured device</string>
+    <string name="connecting_status">Connecting</string>
+    <string name="disconnecting_status">Disconnecting</string>
+    <string name="paring_status">Pairing</string>
+    <string name="unparing_status">Unpairing</string>
+    <string name="manufacturer_name">Manufacturer</string>
+    <string name="model_number">Model number</string>
+    <string name="firmware_revision">FW revision</string>
+    <string name="software_revision">SW revision</string>
+    <string name="hardware_revision">HW revision</string>
+    <string name="connected">Connected</string>
+    <string name="paired">Paired</string>
+    <string name="not_connected">Not connected</string>
+    <string name="not_paired">Not paired</string>
+    <string name="loopback_received">Loopback has been successfully received</string>
+    <string name="send_ispp_loopback">Send ispp loopback</string>
+    <string name="connection_timeout">Connection timeout reached, please retry again and make
+        sure that the device is advertising</string>
+     <string name="pairing_timeout">Pairing timeout reached, please retry again</string>
+</resources>
